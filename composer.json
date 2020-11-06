@@ -1,12 +1,12 @@
 {
-    "name": "picqer/bol-retailer-php-client",
+    "name": "viennaotf/bol-retailer-php-client",
     "type": "library",
     "description": "Bol.com Retailer API client",
     "keywords": [
-        "picqer",
+        "viennaotf",
         "bol-retailer-php-client"
     ],
-    "homepage": "https://github.com/picqer/bol-retailer-php-client",
+    "homepage": "https://github.com/viennaotf/bol-retailer-php-client",
     "license": "MIT",
     "authors": [
         {
@@ -17,7 +17,7 @@
         }
     ],
     "require": {
-        "php": "~7.1",
+        "php": "^7.3.0",
         "ext-json": "*",
         "guzzlehttp/guzzle": "^7.0.1"
     },
@@ -29,12 +29,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Picqer\\BolRetailer\\": "src"
+            "Viennaotf\\BolRetailer\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Picqer\\BolRetailer\\Tests\\": "tests"
+            "Viennaotf\\BolRetailer\\Tests\\": "tests"
         }
     },
     "scripts": {
