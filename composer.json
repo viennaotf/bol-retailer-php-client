@@ -29,12 +29,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Viennaotf\\BolRetailer\\": "src"
+            "Picqer\\BolRetailer\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Viennaotf\\BolRetailer\\Tests\\": "tests"
+            "Picqer\\BolRetailer\\Tests\\": "tests"
         }
     },
     "scripts": {
