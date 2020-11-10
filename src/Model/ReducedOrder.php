@@ -3,6 +3,9 @@
 namespace Picqer\BolRetailer\Model;
 
 use DateTime;
+use GuzzleHttp\Exception\ClientException;
+use Picqer\BolRetailer\Client;
+use Picqer\BolRetailer\Order;
 
 /**
  * @property string $orderId       The identifier of the order.
@@ -26,5 +29,16 @@ class ReducedOrder extends AbstractModel
         );
 
         return $parsedTimestamp instanceof DateTime ? $parsedTimestamp : null;
+    }
+
+    protected function getFullOrder(): Order
+    {
+        try {
+            $response = Client::request('GET', "orders/${id}");
+        } catch (ClientException $e) {
+            static::handleException($e);
+        }
+
+        return new Order(json_decode((string)$response->getBody(), true));
     }
 }
