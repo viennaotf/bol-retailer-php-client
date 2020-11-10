@@ -13,7 +13,7 @@ class Client
 {
     protected const API_ENDPOINT = 'https://api.bol.com/retailer/';
     protected const API_DEMO_ENDPOINT = 'https://api.bol.com/retailer-demo/';
-    protected const API_VERSION_CONTENT_TYPE = 'application/vnd.retailer.v3+json';
+    protected const API_VERSION_CONTENT_TYPE = 'application/vnd.retailer.v4+json';
 
     /** @var HttpInterface|null */
     private static $http;
