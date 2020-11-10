@@ -31,7 +31,7 @@ class ReducedOrder extends AbstractModel
         return $parsedTimestamp instanceof DateTime ? $parsedTimestamp : null;
     }
 
-    protected function getFullOrder(): Order
+    public function getFullOrder(): Order
     {
         try {
             $response = Client::request('GET', "orders/${id}");
