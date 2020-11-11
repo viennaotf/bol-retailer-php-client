@@ -8,6 +8,7 @@ use DateTime;
  * An order.
  *
  * @property string $orderId                        The identifier of the order.
+ * @property boolean $pickUpPoint                   The identifier of the order.
  * @property DateTime|null $orderPlacedDateTime     The date and time the order was placed.
  * @property OrderItem[] $orderItems                The items of the order.
  * @property OrderCustomerDetails $shipmentDetails  The details of the customer that placed the order.
