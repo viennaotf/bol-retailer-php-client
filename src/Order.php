@@ -7,6 +7,8 @@ use Picqer\BolRetailer\Exception\HttpException;
 use Picqer\BolRetailer\Exception\OrderNotFoundException;
 use Picqer\BolRetailer\Exception\RateLimitException;
 use Picqer\BolRetailer\Model;
+use Picqer\BolRetailer\Model\OrderItem;
+use Picqer\BolRetailer\Model\ReducedOrderItem;
 
 class Order extends Model\Order
 {

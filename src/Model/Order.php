@@ -3,6 +3,8 @@
 namespace Picqer\BolRetailer\Model;
 
 use DateTime;
+use Picqer\BolRetailer\Client;
+use Picqer\BolRetailer\ProcessStatus;
 
 /**
  * An order.
@@ -38,5 +40,30 @@ class Order extends AbstractModel
     protected function getCustomerDetails(): OrderCustomerDetails
     {
         return new OrderCustomerDetails($this->data['customerDetails']);
+    }
+
+    /**
+     * Get delivery options for a shippable configuration
+     * of a number of order items within an order.
+     *
+     * @param string $orderId The id of the order item to cancel.
+     * @param string $reasonCode The code representing the reason for cancellation of this item.
+     *
+     * @return Model\ProcessStatus
+     */
+    protected function getDeliveryOptions(): Model\ProcessStatus
+    {
+        $orderItemId = $orderItem instanceof OrderItem || $orderItem instanceof ReducedOrderItem
+            ? $orderItem->orderItemId
+            : $orderItem;
+        $data = ['reasonCode' => $reasonCode];
+
+        try {
+            $response = Client::request('PUT', "orders/${orderItemId}/cancellation", ['body' => json_encode($data)]);
+        } catch (ClientException $e) {
+            static::handleException($e);
+        }
+
+        return new ProcessStatus(json_decode((string)$response->getBody(), true));
     }
 }
